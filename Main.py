@@ -13,8 +13,6 @@ def merge_sort(data) -> None:
 # Two iterators for traversing the two halves
     i = 0
     j = 0
-
-# Iterator for the main list
     k = 0
 
     while i < len(left) and j < len(right):
