@@ -34,6 +34,7 @@ def merge_sort(array, l, r) -> None:
         merge_sort(array, m + 1, r)
         merge(array, l, m, r)
 
+
 # Do not change the following code
 input_data = input()
 data = []
@@ -42,5 +43,5 @@ for item in input_data.split(', '):
     data.append(int(item))
   elif item.lstrip("-").isnumeric():
     data.append(int(item))
-merge_sort(data,l,r)
+merge_sort(data, 0, len(data) - 1)
 print(data)
