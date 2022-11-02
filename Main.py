@@ -1,40 +1,38 @@
 from typing import List
 
-def merge_sort(data) -> None:
-  if len(myList) > 1:
-    mid = len(myList) // 2
-    left = myList[:mid]
-    right = myList[mid:]
+def merge(array, l, m, r):
+    array2 = [0 for i in range(r + 1)]
+    i = l
+    j = m + 1
+    k = l
+    while i <= m and j <= r:
+        if array[i] <= array[j]:
+            array2[k] = array[i]
+            i += 1
+        else:
+            array2[k] = array[j]
+            j += 1
+        k += 1
+    if i > m:
+        while j <= r:
+            array2[k] = array[j]
+            j += 1
+            k += 1
+    else:
+        while i <= m:
+            array2[k] = array[i]
+            i += 1
+            k += 1
+    for i in range(l, r + 1):
+        array[i] = array2[i]
 
-# Recursive call on each half
-    merge_sort(left)
-    merge_sort(right)
-
-# Two iterators for traversing the two halves
-    i = 0
-    j = 0
-    k = 0
-
-    while i < len(left) and j < len(right):
-      if left[i] <= right[j]:
-        myList[k] = left[i]
-        i += 1
-      else:
-        myList[k] = right[j]
-        j += 1
-      k += 1
-
-# For all the remaining values
-while i < len(left):
-  myList[k] = left[i]
-  i += 1
-  k += 1
-
-while j < len(right):
-  myList[k]=right[j]
-  j += 1
-  k += 1
-
+def merge_sort(array, l, r) -> None:
+  # Write code here
+  if l < r:
+        m = (l + r) // 2
+        merge_sort(array, l, m)
+        merge_sort(array, m + 1, r)
+        merge(array, l, m, r)
 
 # Do not change the following code
 input_data = input()
